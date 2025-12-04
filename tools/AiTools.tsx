@@ -48,7 +48,8 @@ export const AiSummarizer: React.FC = () => {
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
        if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
-         if (!window.getSelection()?.toString() && summary) {
+         // FIXED: Removed the selection check - always copy summary if it exists
+         if (summary) {
            e.preventDefault();
            copySummary();
          }
