@@ -1,7 +1,14 @@
 import { GoogleGenAI } from "@google/genai";
 
 // Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Use Vite's environment variable system
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+if (!apiKey) {
+    console.error("VITE_GEMINI_API_KEY is not set. Check your .env.production file.");
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 export const summarizeText = async (text: string): Promise<string> => {
   try {
