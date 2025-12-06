@@ -1,0 +1,260 @@
+[33mcommit d7356b64a1d1f3ff66c400b4d0676663f0bd2835[m
+Author: arman <armanrehmani73@gmail.com>
+Date:   Sat Dec 6 11:01:41 2025 +0500
+
+    chore: backup working VPS state of OmniKit
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex a547bf3..8a745b1 100755[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -22,3 +22,8 @@[m [mdist-ssr[m
+ *.njsproj[m
+ *.sln[m
+ *.sw?[m
+[32m+[m[32m.env.production[m
+[32m+[m[32m.env.local[m
+[32m+[m[32m.env.production[m
+[32m+[m[32m.env.local[m
+[32m+[m[32m.env.production[m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mold mode 100755[m
+[1mnew mode 100644[m
+[1mindex 730cf27..a6f7fdf[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -759,9 +759,9 @@[m
+       }[m
+     },[m
+     "node_modules/@google/genai": {[m
+[31m-      "version": "1.30.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/@google/genai/-/genai-1.30.0.tgz",[m
+[31m-      "integrity": "sha512-3MRcgczBFbUat1wIlZoLJ0vCCfXgm7Qxjh59cZi2X08RgWLtm9hKOspzp7TOg1TV2e26/MLxR2GR5yD5GmBV2w==",[m
+[32m+[m[32m      "version": "1.31.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@google/genai/-/genai-1.31.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-rK0RKXxNkbK35eDl+G651SxtxwHNEOogjyeZJUJe+Ed4yxu3xy5ufCiU0+QLT7xo4M9Spey8OAYfD8LPRlYBKw==",[m
+       "license": "Apache-2.0",[m
+       "dependencies": {[m
+         "google-auth-library": "^10.3.0",[m
+[36m@@ -1343,9 +1343,9 @@[m
+       "license": "MIT"[m
+     },[m
+     "node_modules/baseline-browser-mapping": {[m
+[31m-      "version": "2.8.32",[m
+[31m-      "resolved": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.8.32.tgz",[m
+[31m-      "integrity": "sha512-OPz5aBThlyLFgxyhdwf/s2+8ab3OvT7AdTNvKHBwpXomIYeXqpUUuT8LrdtxZSsWJ4R4CU1un4XGh5Ez3nlTpw==",[m
+[32m+[m[32m      "version": "2.9.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.9.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-8QdH6czo+G7uBsNo0GiUfouPN1lRzKdJTGnKXwe12gkFbnnOUaUKGN55dMkfy+mnxmvjwl9zcI4VncczcVXDhA==",[m
+       "dev": true,[m
+       "license": "Apache-2.0",[m
+       "bin": {[m
+[36m@@ -1377,9 +1377,9 @@[m
+       }[m
+     },[m
+     "node_modules/browserslist": {[m
+[31m-      "version": "4.28.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-4.28.0.tgz",[m
+[31m-      "integrity": "sha512-tbydkR/CxfMwelN0vwdP/pLkDwyAASZ+VfWm4EOwlB6SWhx1sYnWLqo8N5j0rAzPfzfRaxt0mM/4wPU/Su84RQ==",[m
+[32m+[m[32m      "version": "4.28.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-4.28.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-ZC5Bd0LgJXgwGqUknZY/vkUQ04r8NXnJZ3yYi4vDmSiZmC/pdSN0NbNRPxZpbtO4uAfDUAFffO8IZoM3Gj8IkA==",[m
+       "dev": true,[m
+       "funding": [[m
+         {[m
+[36m@@ -1397,11 +1397,11 @@[m
+       ],[m
+       "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "baseline-browser-mapping": "^2.8.25",[m
+[31m-        "caniuse-lite": "^1.0.30001754",[m
+[31m-        "electron-to-chromium": "^1.5.249",[m
+[32m+[m[32m        "baseline-browser-mapping": "^2.9.0",[m
+[32m+[m[32m        "caniuse-lite": "^1.0.30001759",[m
+[32m+[m[32m        "electron-to-chromium": "^1.5.263",[m
+         "node-releases": "^2.0.27",[m
+[31m-        "update-browserslist-db": "^1.1.4"[m
+[32m+[m[32m        "update-browserslist-db": "^1.2.0"[m
+       },[m
+       "bin": {[m
+         "browserslist": "cli.js"[m
+[36m@@ -1429,9 +1429,9 @@[m
+       "license": "BSD-3-Clause"[m
+     },[m
+     "node_modules/caniuse-lite": {[m
+[31m-      "version": "1.0.30001757",[m
+[31m-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001757.tgz",[m
+[31m-      "integrity": "sha512-r0nnL/I28Zi/yjk1el6ilj27tKcdjLsNqAOZr0yVjWPrSQyHgKI2INaEWw21bAQSv2LXRt1XuCS/GomNpWOxsQ==",[m
+[32m+[m[32m      "version": "1.0.30001759",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001759.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Pzfx9fOKoKvevQf8oCXoyNRQ5QyxJj+3O0Rqx2V5oxT61KGx8+n6hV/IUyJeifUci2clnmmKVpvtiqRzgiWjSw==",[m
+       "dev": true,[m
+       "funding": [[m
+         {[m
+[36m@@ -1602,9 +1602,9 @@[m
+       }[m
+     },[m
+     "node_modules/electron-to-chromium": {[m
+[31m-      "version": "1.5.262",[m
+[31m-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.262.tgz",[m
+[31m-      "integrity": "sha512-NlAsMteRHek05jRUxUR0a5jpjYq9ykk6+kO0yRaMi5moe7u0fVIOeQ3Y30A8dIiWFBNUoQGi1ljb1i5VtS9WQQ==",[m
+[32m+[m[32m      "version": "1.5.266",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.266.tgz",[m
+[32m+[m[32m      "integrity": "sha512-kgWEglXvkEfMH7rxP5OSZZwnaDWT7J9EoZCujhnpLbfi0bbNtRkgdX2E3gt0Uer11c61qCYktB3hwkAS325sJg==",[m
+       "dev": true,[m
+       "license": "ISC"[m
+     },[m
+[36m@@ -2002,12 +2002,12 @@[m
+       }[m
+     },[m
+     "node_modules/jws": {[m
+[31m-      "version": "4.0.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/jws/-/jws-4.0.0.tgz",[m
+[31m-      "integrity": "sha512-KDncfTmOZoOMTFG4mBlG0qUIOlc03fmzH+ru6RgYVZhPkyiy/92Owlt/8UEN+a4TXR1FQetfIpJE8ApdvdVxTg==",[m
+[32m+[m[32m      "version": "4.0.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/jws/-/jws-4.0.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-EKI/M/yqPncGUUh44xz0PxSidXFr/+r0pA70+gIYhjv+et7yxM+s29Y+VGDkovRofQem0fs7Uvf4+YmAdyRduA==",[m
+       "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "jwa": "^2.0.0",[m
+[32m+[m[32m        "jwa": "^2.0.1",[m
+         "safe-buffer": "^5.0.1"[m
+       }[m
+     },[m
+[36m@@ -2249,24 +2249,24 @@[m
+       }[m
+     },[m
+     "node_modules/react": {[m
+[31m-      "version": "19.2.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/react/-/react-19.2.0.tgz",[m
+[31m-      "integrity": "sha512-tmbWg6W31tQLeB5cdIBOicJDJRR2KzXsV7uSK9iNfLWQ5bIZfxuPEHp7M8wiHyHnn0DD1i7w3Zmin0FtkrwoCQ==",[m
+[32m+[m[32m      "version": "19.2.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/react/-/react-19.2.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-DGrYcCWK7tvYMnWh79yrPHt+vdx9tY+1gPZa7nJQtO/p8bLTDaHp4dzwEhQB7pZ4Xe3ok4XKuEPrVuc+wlpkmw==",[m
+       "license": "MIT",[m
+       "engines": {[m
+         "node": ">=0.10.0"[m
+       }[m
+     },[m
+     "node_modules/react-dom": {[m
+[31m-      "version": "19.2.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.0.tgz",[m
+[31m-      "integrity": "sha512-UlbRu4cAiGaIewkPyiRGJk0imDN2T3JjieT6spoL2UeSf5od4n5LB/mQ4ejmxhCFT1tYe8IvaFulzynWovsEFQ==",[m
+[32m+[m[32m      "version": "19.2.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-ibrK8llX2a4eOskq1mXKu/TGZj9qzomO+sNfO98M6d9zIPOEhlBkMkBUBLd1vgS0gQsLDBzA+8jJBVXDnfHmJg==",[m
+       "license": "MIT",[m
+       "dependencies": {[m
+         "scheduler": "^0.27.0"[m
+       },[m
+       "peerDependencies": {[m
+[31m-        "react": "^19.2.0"[m
+[32m+[m[32m        "react": "^19.2.1"[m
+       }[m
+     },[m
+     "node_modules/react-refresh": {[m
+[36m@@ -2280,9 +2280,9 @@[m
+       }[m
+     },[m
+     "node_modules/react-router": {[m
+[31m-      "version": "7.9.6",[m
+[31m-      "resolved": "https://registry.npmjs.org/react-router/-/react-router-7.9.6.tgz",[m
+[31m-      "integrity": "sha512-Y1tUp8clYRXpfPITyuifmSoE2vncSME18uVLgaqyxh9H35JWpIfzHo+9y3Fzh5odk/jxPW29IgLgzcdwxGqyNA==",[m
+[32m+[m[32m      "version": "7.10.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-router/-/react-router-7.10.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-gHL89dRa3kwlUYtRQ+m8NmxGI6CgqN+k4XyGjwcFoQwwCWF6xXpOCUlDovkXClS0d0XJN/5q7kc5W3kiFEd0Yw==",[m
+       "license": "MIT",[m
+       "dependencies": {[m
+         "cookie": "^1.0.1",[m
+[36m@@ -2302,12 +2302,12 @@[m
+       }[m
+     },[m
+     "node_modules/react-router-dom": {[m
+[31m-      "version": "7.9.6",[m
+[31m-      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.9.6.tgz",[m
+[31m-      "integrity": "sha512-2MkC2XSXq6HjGcihnx1s0DBWQETI4mlis4Ux7YTLvP67xnGxCvq+BcCQSO81qQHVUTM1V53tl4iVVaY5sReCOA==",[m
+[32m+[m[32m      "version": "7.10.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.10.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-JNBANI6ChGVjA5bwsUIwJk7LHKmqB4JYnYfzFwyp2t12Izva11elds2jx7Yfoup2zssedntwU0oZ5DEmk5Sdaw==",[m
+       "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "react-router": "7.9.6"[m
+[32m+[m[32m        "react-router": "7.10.1"[m
+       },[m
+       "engines": {[m
+         "node": ">=20.0.0"[m
+[36m@@ -2641,9 +2641,9 @@[m
+       "license": "MIT"[m
+     },[m
+     "node_modules/update-browserslist-db": {[m
+[31m-      "version": "1.1.4",[m
+[31m-      "resolved": "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.1.4.tgz",[m
+[31m-      "integrity": "sha512-q0SPT4xyU84saUX+tomz1WLkxUbuaJnR1xWt17M7fJtEJigJeWUNGUqrauFXsHnqev9y9JTRGwk13tFBuKby4A==",[m
+[32m+[m[32m      "version": "1.2.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-E85pfNzMQ9jpKkA7+TJAi4TJN+tBCuWh5rUcS/sv6cFi+1q9LYDwDI5dpUL0u/73EElyQ8d3TEaeW4sPedBqYA==",[m
+       "dev": true,[m
+       "funding": [[m
+         {[m
+[1mdiff --git a/services/geminiService.ts b/services/geminiService.ts[m
+[1mindex 0a827d1..0d7325f 100755[m
+[1m--- a/services/geminiService.ts[m
+[1m+++ b/services/geminiService.ts[m
+[36m@@ -1,7 +1,14 @@[m
+ import { GoogleGenAI } from "@google/genai";[m
+ [m
+ // Initialize Gemini Client[m
+[31m-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });[m
+[32m+[m[32m// Use Vite's environment variable system[m
+[32m+[m[32mconst apiKey = import.meta.env.VITE_GEMINI_API_KEY;[m
+[32m+[m
+[32m+[m[32mif (!apiKey) {[m
+[32m+[m[32m    console.error("VITE_GEMINI_API_KEY is not set. Check your .env.production file.");[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mconst ai = new GoogleGenAI({ apiKey });[m
+ [m
+ export const summarizeText = async (text: string): Promise<string> => {[m
+   try {[m
+[1mdiff --git a/vite.config.ts b/vite.config.ts[m
+[1mindex eb7327d..2468967 100755[m
+[1m--- a/vite.config.ts[m
+[1m+++ b/vite.config.ts[m
+[36m@@ -1,23 +1,17 @@[m
+ import path from 'path';[m
+[31m-import { defineConfig, loadEnv } from 'vite';[m
+[32m+[m[32mimport { defineConfig } from 'vite';[m
+ import react from '@vitejs/plugin-react';[m
+ [m
+[31m-export default defineConfig(({ mode }) => {[m
+[31m-    const env = loadEnv(mode, '.', '');[m
+[31m-return {[m
+[32m+[m[32mexport default defineConfig({[m
+   base: '/omnikit/',[m
+[31m-  server: {        port: 3000,[m
+[31m-        host: '0.0.0.0',[m
+[31m-      },[m
+[31m-      plugins: [react()],[m
+[31m-      define: {[m
+[31m-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),[m
+[31m-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)[m
+[31m-      },[m
+[31m-      resolve: {[m
+[31m-        alias: {[m
+[31m-          '@': path.resolve(__dirname, '.'),[m
+[31m-        }[m
+[31m-      }[m
+[31m-    };[m
+[31m-});[m
+[32m+[m[32m  server: {[m
+[32m+[m[32m    port: 3000,[m
+[32m+[m[32m    host: '0.0.0.0',[m
+[32m+[m[32m  },[m
+[32m+[m[32m  plugins: [react()],[m
+[32m+[m[32m  resolve: {[m
+[32m+[m[32m    alias: {[m
+[32m+[m[32m      '@': path.resolve(__dirname, '.'),[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[32m});[m
+\ No newline at end of file[m
